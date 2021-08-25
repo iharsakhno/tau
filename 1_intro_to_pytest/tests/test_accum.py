@@ -1,19 +1,40 @@
 """
-This module contains a basic accumulator class.
-Its purporse is to show how to use pytest framework to testing classes
+This module contain basic unit tests for the accum module.
+Their purpose is to show how to use the pytest framework by example.
 """
 
-#-------
-# Class: Accumulator
+#----
+# imports
+# -----
+
+import pytest
+from stuff.accum import accum
+
+#---------
+# Tests
 #---------
 
-class Accumulator:
-    def __init__(self):
-        self._count = 0
+def test_accumulator_init():
+    accum = Accumulator()
+    assert  accum.count == 0
 
-    @property
-    def count(self):
-        return self._count
+def test_accumulator_add_one():
+    accum = Accumulator()
+    accum.add()
+    assert  accum.count == 1
 
-    def add(self, more=1):
-        self._count += more
+def test_accumulator_add_three():
+    accum = Accumulator()
+    accum.add(3)
+    assert  accum.count == 3
+
+def test_accumulator_add_twice():
+    accum = Accumulator()
+    accum.add()
+    accum.add()
+    assert  accum.count == 2
+
+def test_accumulator_cannot_set_count_directly():
+    accum = Accumulator()
+    with pytest.raises(AssertionError, match="can't set attribute") as e:
+        accum.count = 10

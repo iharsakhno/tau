@@ -8,3 +8,4 @@ This project relatives to courses from Test Automation Academy, Python branch.
     - Chapter 3 (A test case with an Exception)
     - Chapter 4 (Parametriezed test Cases) so usefull!!! 
 	- Chapter 5 (Testing Classes)
+	- Chapter 6 (@fixtures)
